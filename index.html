@@ -15,26 +15,37 @@
       line-height: 1.5;
     }
     header {
-      background-color: red;
+      background-color: white;
       padding: 10px;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
+    }
+    header img {
+      max-width: 100px;
+      height: auto;
     }
     nav ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
     }
     nav li {
       margin-right: 20px;
     }
     nav a {
       text-decoration: none;
-      color: white;
+      color: black;
       font-weight: bold;
       font-size: 18px;
+      transition: color 0.3s ease-in-out;
+    }
+    nav a:hover {
+      color: yellow;
     }
     main {
       padding: 20px;
@@ -53,11 +64,14 @@
       padding: 10px;
       text-align: center;
     }
+    .slideshow-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
     .slideshow {
       width: 100%;
       height: auto;
       overflow: hidden;
-      margin-bottom: 20px;
     }
     .slideshow img {
       width: 100%;
@@ -78,9 +92,39 @@
       margin: 0 5px;
       padding: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
     }
     .slideshow-nav button.active {
       font-weight: bold;
+      background-color: yellow;
+    }
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      45% {
+        opacity: 1;
+      }
+      55% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    .slideshow img {
+      animation: fadeInOut 9s linear infinite;
+    }
+    .intro {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .intro h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .intro p {
+      font-size: 16px;
     }
   </style>
   <script>
@@ -127,6 +171,7 @@
 </head>
 <body>
   <header>
+    <img src="https://i.postimg.cc/jSqLz8Tk/IMG-20230629-060105.jpg" alt="山河大学校徽">
     <nav>
       <ul>
         <li><a href="#">首页</a></li>
@@ -137,6 +182,9 @@
         <li><a href="#">联系我们</a></li>
       </ul>
     </nav>
+  </header>
+
+  <div class="slideshow-container">
     <div class="slideshow">
       <img src="https://i.postimg.cc/ZK8y4tfg/85934af14668407191be5f05c729190e.jpg" class="active">
       <img src="https://i.postimg.cc/R0y0wXsK/7594f248e80bec72.jpg">
@@ -147,10 +195,21 @@
       <button></button>
       <button></button>
     </div>
-  </header>
+  </div>
 
   <main>
-    <!-- 页面的其他内容 -->
+    <section>
+      <div class="intro">
+        <h2>欢迎来到山河大学</h2>
+        <p>致力于培养卓越人才的高等学府</p>
+      </div>
+      <h1>关于我们</h1>
+      <p>山河大学创立于2023年6月28日，是一所致力于培养卓越人才的高等学府。</p>
+      <p>我们的校训是“博学，求知”，我们秉承着追求知识的精神，培养学生的综合素养和专业技能。</p>
+      <p>我们的目标是在三年内超越清华大学，在五年内赶超北京大学，成为全球一流的高等学府。</p>
+    </section>
+
+    <!-- 其他内容 -->
   </main>
 
   <footer>
