@@ -1,68 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#000000">
-    <meta name="description" content="Web site created using CloudBase Webify">
-    <title>Hello Webify！</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-                sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        code {
-            font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-                monospace;
-        }
-        .App {
-            text-align: center;
-        }
-
-        .App-logo {
-            height: 40vmin;
-            pointer-events: none;
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .App-logo {
-                animation: App-logo-spin infinite 20s linear;
-            }
-        }
-
-        .App-header {
-            background-color: #efefef;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: calc(10px + 2vmin);
-            color: black;
-        }
-
-        .App-link {
-            color: #108ee9;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山河大学</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+    }
+    header {
+      background-color: red;
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+    nav li {
+      margin-right: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    main {
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    h1, h2 {
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      background-color: #f2f2f2;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
-    <div id="root">
-        <div class="App">
-            <header class="App-header">
-                <img src="https://main.qcloudimg.com/raw/2f3b21706c37e8685efe5c60b26ceb24.png" class="App-logo" alt="logo">
-                <p>Welcome to Webify！</p>
-                <a class="App-link" href="https://webify.cloudbase.net/"
-                    target="_blank" rel="noopener noreferrer">webify.cloudbase.net</a>
-            </header>
-        </div>
-    </div>
-</body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">关于我们</a></li>
+        <li><a href="#">学术专业</a></li>
+        <li><a href="#">招生信息</a></li>
+        <li><a href="#">校园生活</a></li>
+        <li><a href="#">联系我们</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <section>
+      <h1>欢迎来到山河大学</h1>
+      <p>山河大学是一所致力于培养优秀人才的高等教育机构。</p>
+    </section>
+
+    <section>
+      <h2>关于我们</h2>
+      <p>山河大学成立于2023年6月28日，致力于提供高质量的教育和研究环境。</p>
+    </section>
+
+    <section>
+      <h2>学术专业</h2>
+      <ul>
+        <li>计算机科学</li>
+        <li>商务管理</li>
+        <li>工程学</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>招生信息</h2>
+      <p>欢迎对我们学校感兴趣的学生申请入学。</p>
+      <p>请填写<a href="#">在线申请表</a>以获取更多信息。</p>
+    </section>
+
+    <section>
+      <h2>校园生活</h2>
+      <p>在山河大学，我们提供丰富多彩的校园生活和社交活动。</p>
+    </section>
+
+    <section>
+      <h2>联系我们</h2>
+      <p>如有任何问题或疑问，请通过以下方式与我们联系：</p>
+      <ul>
+        <li>电话：xxx-xxxxxxx</li>
+        <li>电子邮件：<a href="mailto:info@shanhuauniversity.com">info@shanhuauniversity.com</a></li>
+        <li>地址：xxxxx街道xxxx号，xxxx市，xxxx省</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 山河大学. All rights reserved.</p>
+  </footer>
+</body>
 </html>
