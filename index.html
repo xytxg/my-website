@@ -65,15 +65,37 @@
       margin-bottom: 10px;
     }
 
-    .stars {
-      margin-top: 10px;
-      display: flex;
-      align-items: center;
+    .slideshow-container {
+      position: relative;
     }
 
-    .stars span {
-      color: gold;
-      font-size: 20px;
+    .slideshow {
+      display: none;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: auto;
+    }
+
+    .slideshow-nav {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .slideshow-nav button {
+      width: 10px;
+      height: 10px;
+      background-color: #bbb;
+      border: none;
+      border-radius: 50%;
+      margin: 0 5px;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .active-slide {
+      background-color: #555;
     }
   </style>
 </head>
@@ -99,98 +121,64 @@
     <h1>欢迎来到山河大学</h1>
     <div class="slideshow-container">
       <div class="slideshow">
-        <img src="https://i.postimg.cc/ZK8y4tfg/85934af14668407191be5f05c729190e.jpg" alt="Slide 1" class="active">
-        <img src="https://i.postimg.cc/R0y0wXsK/7594f248e80bec72.jpg" alt="Slide 2">
-        <img src="https://i.postimg.cc/jdcdMs3s/e127ce7d96814754b39c5f4145fa36d7.png" alt="Slide 3">
+        <img src="https://i.postimg.cc/ZK8y4tfg/85934af14668407191be5f05c729190e.jpg" alt="Slide 1">
+        <img src="https://i.postimg.cc/7hTg0r1w/1d48ee76f9a040d2a108ad6784df288b.jpg" alt="Slide 2">
+        <img src="https://i.postimg.cc/c1ndnXt3/4978c2f0e50d4b3a99727648d8e425b6.jpg" alt="Slide 3">
       </div>
       <div class="slideshow-nav">
-        <button class="active"></button>
-        <button></button>
-        <button></button>
+        <button class="slide-button"></button>
+        <button class="slide-button"></button>
+        <button class="slide-button"></button>
       </div>
-    </div>
-    <div class="stars">
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
-      <span>★</span>
     </div>
   </div>
 
   <div class="section">
     <h1>关于我们</h1>
-    <p>山河大学是一所优秀的学府，致力于为学生提供高质量的教育和全面的发展机会。</p>
-    <p>我们的教职员工由经验丰富的专业人士组成，为学生提供最佳的教学环境和支持。</p>
+    <p>山河大学是一所优秀的学术机构，致力于为学生提供卓越的教育和培训。</p>
   </div>
 
   <div class="section">
     <h1>学术课程</h1>
-    <p>山河大学提供多种学术课程，涵盖文理科、工程、人文社会科学等领域。</p>
-    <p>我们的课程注重理论与实践相结合，培养学生的创新思维和解决问题的能力。</p>
+    <p>我们提供多种学术课程，涵盖人文科学、社会科学、自然科学等领域。</p>
   </div>
 
   <div class="section">
     <h1>招生信息</h1>
-    <p>欢迎有志于成为山河大学一员的学生加入我们的大家庭。</p>
-    <p>请访问我们的网站了解更多招生信息和入学要求。</p>
+    <p>了解我们的招生政策、入学要求以及如何申请加入山河大学。</p>
   </div>
 
   <div class="section">
     <h1>校园生活</h1>
-    <p>山河大学提供丰富多彩的校园生活。学生可以参加各种社团活动、运动赛事和艺术表演。</p>
-    <p>我们的校园设施现代化，包括图书馆、实验室、运动场和学生宿舍。</p>
+    <p>探索我们丰富多彩的校园生活，包括社团活动、运动会、艺术表演等。</p>
   </div>
 
   <div class="section">
     <h1>联系我们</h1>
-    <p>如果您对山河大学有任何疑问或需要进一步了解，可以通过以下方式联系我们：</p>
-    <ul>
-      <li>电话：123-456-7890</li>
-      <li>电子邮件：info@example.com</li>
-      <li>地址：123 Main Street, City, Country</li>
-    </ul>
+    <p>如果您有任何疑问或需要进一步了解山河大学，请随时联系我们。</p>
   </div>
 
   <script>
-    const navToggle = document.querySelector('.nav-toggle');
-    const navList = document.querySelector('.nav-list');
+    // 幻灯片轮播功能
+    var slideIndex = 0;
+    showSlides();
 
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('active');
-      navList.classList.toggle('active');
-    });
-
-    const slides = document.querySelectorAll('.slideshow img');
-    const slideNavButtons = document.querySelectorAll('.slideshow-nav button');
-
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      slides.forEach((slide) => {
-        slide.classList.remove('active');
-      });
-
-      slideNavButtons.forEach((button) => {
-        button.classList.remove('active');
-      });
-
-      slides[index].classList.add('active');
-      slideNavButtons[index].classList.add('active');
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("slideshow");
+      var buttons = document.getElementsByClassName("slide-button");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        buttons[i].className = buttons[i].className.replace(" active-slide", "");
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      buttons[slideIndex - 1].className += " active-slide";
+      setTimeout(showSlides, 3000); // 切换时间间隔为3秒
     }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % slides.length;
-      showSlide(currentIndex);
-    }
-
-    slideNavButtons.forEach((button, index) => {
-      button.addEventListener('click', () => {
-        showSlide(index);
-      });
-    });
-
-    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
