@@ -20,7 +20,6 @@
     }
 
     .logo {
-      float: left;
       margin-bottom: 10px;
     }
 
@@ -52,14 +51,9 @@
     }
 
     .section {
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: #fff;
       padding: 20px;
       margin-bottom: 20px;
-      transition: background-color 0.5s;
-    }
-
-    .section:hover {
-      background-color: rgba(255, 255, 255, 1);
     }
 
     h1 {
@@ -103,100 +97,66 @@
     .active-slide {
       background-color: #555;
     }
-
-    .flower-animation {
-      width: 50px;
-      height: 50px;
-      background-color: #ff69b4;
-      border-radius: 50%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      animation: flower 2s linear infinite;
-    }
-
-    @keyframes flower {
-      0% {
-        left: 0;
-        top: 0;
-      }
-      25% {
-        left: 100px;
-        top: 0;
-      }
-      50% {
-        left: 100px;
-        top: 100px;
-      }
-      75% {
-        left: 0;
-        top: 100px;
-      }
-      100% {
-        left: 0;
-        top: 0;
-      }
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="https://i.postimg.cc/hv4HC7Gg/Screenshot-2023-06-29-06-08-09-54-99c04817c0de5652397fc8b56c3b3817.jpg" alt="Logo">
+      <img src="https://i.postimg.cc/hv4HC7Gg/Screenshot-2023-06-29-06-08-09-54-99c04817c0de5652397fc8b56c3b3817.png" alt="School Logo" height="50">
     </div>
-    <h1>山河大学</h1>
   </header>
 
-  <div class="nav">
+  <nav class="nav">
     <ul>
-      <li><a href="#home">首页</a></li>
-      <li><a href="#about">关于我们</a></li>
-      <li><a href="#courses">学术课程</a></li>
-      <li><a href="#admissions">招生信息</a></li>
-      <li><a href="#campus">校园生活</a></li>
-      <li><a href="#contact">联系我们</a></li>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">关于我们</a></li>
+      <li><a href="#">学术课程</a></li>
+      <li><a href="#">招生信息</a></li>
+      <li><a href="#">校园生活</a></li>
+      <li><a href="#">联系我们</a></li>
     </ul>
+  </nav>
+
+  <div class="section">
+    <h1>欢迎来到山河大学</h1>
+    <div class="slideshow-container">
+      <div class="slideshow">
+        <img src="https://i.postimg.cc/ZK8y4tfg/85934af14668407191be5f05c729190e.jpg" alt="Slide 1">
+        <img src="https://i.postimg.cc/7hTg0r1w/1d48ee76f9a040d2a108ad6784df288b.jpg" alt="Slide 2">
+        <img src="https://i.postimg.cc/c1ndnXt3/4978c2f0e50d4b3a99727648d8e425b6.jpg" alt="Slide 3">
+      </div>
+      <div class="slideshow-nav">
+        <button class="slide-button"></button>
+        <button class="slide-button"></button>
+        <button class="slide-button"></button>
+      </div>
+    </div>
   </div>
 
-  <div class="slideshow-container">
-    <div class="slideshow">
-      <img src="https://i.postimg.cc/7hTg0r1w/1d48ee76f9a040d2a108ad6784df288b.jpg" alt="Slide 1">
-      <img src="https://i.postimg.cc/c1ndnXt3/4978c2f0e50d4b3a99727648d8e425b6.jpg" alt="Slide 2">
-      <img src="https://i.postimg.cc/3r8T9fHg/3e800315ca96465aa8a63849139c4db6.jpg" alt="Slide 3">
-    </div>
-    <div class="slideshow-nav">
-      <button class="slide-button"></button>
-      <button class="slide-button"></button>
-      <button class="slide-button"></button>
-    </div>
-  </div>
-
-  <div class="section" id="about">
+  <div class="section">
     <h1>关于我们</h1>
     <p>山河大学是一所优秀的学术机构，致力于为学生提供卓越的教育和培训。</p>
   </div>
 
-  <div class="section" id="courses">
+  <div class="section">
     <h1>学术课程</h1>
     <p>我们提供多种学术课程，涵盖人文科学、社会科学、自然科学等领域。</p>
   </div>
 
-  <div class="section" id="admissions">
+  <div class="section">
     <h1>招生信息</h1>
     <p>了解我们的招生政策、入学要求以及如何申请加入山河大学。</p>
   </div>
 
-  <div class="section" id="campus">
+  <div class="section">
     <h1>校园生活</h1>
     <p>探索我们丰富多彩的校园生活，包括社团活动、运动会、艺术表演等。</p>
   </div>
 
-  <div class="section" id="contact">
+  <div class="section">
     <h1>联系我们</h1>
     <p>如果您有任何疑问或需要进一步了解山河大学，请随时联系我们。</p>
   </div>
-
-  <div class="flower-animation"></div>
 
   <script>
     // 幻灯片轮播功能
@@ -205,19 +165,19 @@
 
     function showSlides() {
       var i;
-      var slides = document.getElementsByClassName("slideshow")[0].getElementsByTagName("img");
+      var slides = document.getElementsByClassName("slideshow");
       var buttons = document.getElementsByClassName("slide-button");
       for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
-        buttons[i].classList.remove("active-slide");
+        buttons[i].className = buttons[i].className.replace(" active-slide", "");
       }
       slideIndex++;
       if (slideIndex > slides.length) {
         slideIndex = 1;
       }
       slides[slideIndex - 1].style.display = "block";
-      buttons[slideIndex - 1].classList.add("active-slide");
-      setTimeout(showSlides, 2000); // 每2秒切换一张幻灯片
+      buttons[slideIndex - 1].className += " active-slide";
+      setTimeout(showSlides, 3000); // 切换时间间隔为3秒
     }
   </script>
 </body>
