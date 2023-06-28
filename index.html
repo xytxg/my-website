@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>山河大学</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,244 +11,146 @@
     body {
       font-family: Arial, sans-serif;
       background-color: #f1f1f1;
-      color: #333;
     }
 
     header {
-      background-color: #333;
-      padding: 20px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background-color: #fff;
+      padding: 10px;
+      text-align: center;
     }
 
     .logo {
-      margin-right: 20px;
+      margin-bottom: 10px;
     }
 
-    .nav-list {
-      list-style: none;
-      display: flex;
+    .nav {
+      background-color: #fff;
+      text-align: center;
+      padding: 10px;
     }
 
-    .nav-list li {
-      margin-right: 10px;
+    .nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
 
-    .nav-list li a {
-      color: #fff;
+    .nav li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    .nav li a {
+      color: #000;
       text-decoration: none;
       padding: 5px;
     }
 
-    .nav-toggle {
-      color: #fff;
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    .slideshow-container {
-      position: relative;
-      margin: 20px 0;
-    }
-
-    .slideshow {
-      display: flex;
-      overflow: hidden;
-    }
-
-    .slideshow img {
-      width: 100%;
-      display: none;
-    }
-
-    .slideshow img.active {
-      display: block;
-    }
-
-    .slideshow-nav {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-
-    .slideshow-nav button {
+    .nav li a:hover {
       background-color: #ddd;
-      border: none;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin: 0 5px;
-      cursor: pointer;
     }
 
-    .slideshow-nav button.active {
-      background-color: #333;
-    }
-
-    main {
+    .section {
+      background-color: #fff;
       padding: 20px;
-    }
-
-    section {
       margin-bottom: 20px;
     }
 
     h1 {
       font-size: 24px;
       margin-bottom: 10px;
-      color: #fff;
     }
 
-    ul {
-      list-style-type: square;
-      margin-left: 20px;
+    p {
+      margin-bottom: 10px;
     }
 
-    .intro {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
+    .stars {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
     }
 
-    .rectangle {
-      width: 0;
-      height: 20px;
-      background-color: #fff;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: rectangleAnimation 2s forwards;
-    }
-
-    @keyframes rectangleAnimation {
-      0% {
-        width: 0;
-      }
-      100% {
-        width: 200px;
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .nav-list {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-
-      .nav-toggle.active {
-        color: #fff;
-      }
-
-      .nav-toggle:before {
-        content: '\2630';
-      }
-
-      .nav-list.active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 20px;
-        background-color: #333;
-        padding: 10px;
-        width: 100%;
-      }
-
-      .nav-list li {
-        margin-bottom: 10px;
-      }
-
-      .nav-list li a {
-        color: #fff;
-        padding: 0;
-      }
+    .stars span {
+      color: gold;
+      font-size: 20px;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="logo">
-        <img src="https://i.postimg.cc/hv4HC7Gg/Screenshot-2023-06-29-06-08-09-54-99c04817c0de5652397fc8b56c3b3817.png" alt="School Logo" height="50">
-      </div>
-      <div class="nav-toggle"></div>
-      <ul class="nav-list">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">关于我们</a></li>
-        <li><a href="#">学术课程</a></li>
-        <li><a href="#">招生信息</a></li>
-        <li><a href="#">校园生活</a></li>
-        <li><a href="#">联系我们</a></li>
-      </ul>
-    </nav>
+    <div class="logo">
+      <img src="https://i.postimg.cc/hv4HC7Gg/Screenshot-2023-06-29-06-08-09-54-99c04817c0de5652397fc8b56c3b3817.png" alt="School Logo" height="50">
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h1>欢迎来到山河大学</h1>
-      <div class="slideshow-container">
-        <div class="slideshow">
-          <img src="https://example.com/slide1.jpg" alt="Slide 1" class="active">
-          <img src="https://example.com/slide2.jpg" alt="Slide 2">
-          <img src="https://example.com/slide3.jpg" alt="Slide 3">
-        </div>
-        <div class="slideshow-nav">
-          <button class="active"></button>
-          <button></button>
-          <button></button>
-        </div>
+  <nav class="nav">
+    <ul>
+      <li><a href="#">首页</a></li>
+      <li><a href="#">关于我们</a></li>
+      <li><a href="#">学术课程</a></li>
+      <li><a href="#">招生信息</a></li>
+      <li><a href="#">校园生活</a></li>
+      <li><a href="#">联系我们</a></li>
+    </ul>
+  </nav>
+
+  <div class="section">
+    <h1>欢迎来到山河大学</h1>
+    <div class="slideshow-container">
+      <div class="slideshow">
+        <img src="https://i.postimg.cc/ZK8y4tfg/85934af14668407191be5f05c729190e.jpg" alt="Slide 1" class="active">
+        <img src="https://i.postimg.cc/R0y0wXsK/7594f248e80bec72.jpg" alt="Slide 2">
+        <img src="https://i.postimg.cc/jdcdMs3s/e127ce7d96814754b39c5f4145fa36d7.png" alt="Slide 3">
       </div>
-    </section>
-
-    <section>
-      <h1>关于我们</h1>
-      <div class="intro">
-        <p>山河大学是一所优秀的学府，致力于提供高质量的教育和培养杰出的人才。我们的教师团队由一流的学者和行业专家组成，为学生提供丰富的学术资源和实践机会。</p>
-        <p>学术课程设置广泛，涵盖文科、理科、商科等多个领域。我们注重培养学生的创新能力、团队合作精神和社会责任感。</p>
+      <div class="slideshow-nav">
+        <button class="active"></button>
+        <button></button>
+        <button></button>
       </div>
-    </section>
+    </div>
+    <div class="stars">
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+      <span>★</span>
+    </div>
+  </div>
 
-    <section>
-      <h1>学术课程</h1>
-      <ul>
-        <li>计算机科学</li>
-        <li>工程学</li>
-        <li>艺术与设计</li>
-        <li>商业管理</li>
-        <li>生命科学</li>
-      </ul>
-    </section>
+  <div class="section">
+    <h1>关于我们</h1>
+    <p>山河大学是一所优秀的学府，致力于为学生提供高质量的教育和全面的发展机会。</p>
+    <p>我们的教职员工由经验丰富的专业人士组成，为学生提供最佳的教学环境和支持。</p>
+  </div>
 
-    <section>
-      <h1>招生信息</h1>
-      <p>山河大学欢迎优秀的学生加入我们的大家庭。我们提供多个专业的招生项目，招收全球范围内的学生。</p>
-      <p>请访问我们的网站了解更多信息和申请流程。</p>
-    </section>
+  <div class="section">
+    <h1>学术课程</h1>
+    <p>山河大学提供多种学术课程，涵盖文理科、工程、人文社会科学等领域。</p>
+    <p>我们的课程注重理论与实践相结合，培养学生的创新思维和解决问题的能力。</p>
+  </div>
 
-    <section>
-      <h1>校园生活</h1>
-      <p>山河大学提供丰富多彩的校园生活。学生可以参加各种社团活动、运动赛事和艺术表演。</p>
-      <p>我们的校园设施现代化，包括图书馆、实验室、运动场和学生宿舍。</p>
-    </section>
+  <div class="section">
+    <h1>招生信息</h1>
+    <p>欢迎有志于成为山河大学一员的学生加入我们的大家庭。</p>
+    <p>请访问我们的网站了解更多招生信息和入学要求。</p>
+  </div>
 
-    <section>
-      <h1>联系我们</h1>
-      <p>如果您对山河大学有任何疑问或需要进一步了解，可以通过以下方式联系我们：</p>
-      <ul>
-        <li>电话：123-456-7890</li>
-        <li>电子邮件：info@example.com</li>
-        <li>地址：123 Main Street, City, Country</li>
-      </ul>
-    </section>
-  </main>
+  <div class="section">
+    <h1>校园生活</h1>
+    <p>山河大学提供丰富多彩的校园生活。学生可以参加各种社团活动、运动赛事和艺术表演。</p>
+    <p>我们的校园设施现代化，包括图书馆、实验室、运动场和学生宿舍。</p>
+  </div>
+
+  <div class="section">
+    <h1>联系我们</h1>
+    <p>如果您对山河大学有任何疑问或需要进一步了解，可以通过以下方式联系我们：</p>
+    <ul>
+      <li>电话：123-456-7890</li>
+      <li>电子邮件：info@example.com</li>
+      <li>地址：123 Main Street, City, Country</li>
+    </ul>
+  </div>
 
   <script>
     const navToggle = document.querySelector('.nav-toggle');
@@ -291,7 +190,7 @@
       });
     });
 
-    setInterval(nextSlide, 3000);
+    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
