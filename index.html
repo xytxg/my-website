@@ -18,7 +18,7 @@
       background-color: red;
       padding: 10px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
     }
     nav ul {
@@ -54,11 +54,76 @@
       text-align: center;
     }
     .slideshow {
-      max-width: 100%;
+      width: 100%;
       height: auto;
+      overflow: hidden;
       margin-bottom: 20px;
     }
+    .slideshow img {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+    .slideshow img.active {
+      display: block;
+    }
+    .slideshow-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .slideshow-nav button {
+      background-color: transparent;
+      border: none;
+      margin: 0 5px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .slideshow-nav button.active {
+      font-weight: bold;
+    }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var slides = Array.from(document.querySelectorAll('.slideshow img'));
+      var navButtons = Array.from(document.querySelectorAll('.slideshow-nav button'));
+
+      function showSlide(index) {
+        slides.forEach(function(slide) {
+          slide.classList.remove('active');
+        });
+        navButtons.forEach(function(button) {
+          button.classList.remove('active');
+        });
+        slides[index].classList.add('active');
+        navButtons[index].classList.add('active');
+      }
+
+      function nextSlide() {
+        var currentIndex = slides.findIndex(function(slide) {
+          return slide.classList.contains('active');
+        });
+        var nextIndex = (currentIndex + 1) % slides.length;
+        showSlide(nextIndex);
+      }
+
+      function previousSlide() {
+        var currentIndex = slides.findIndex(function(slide) {
+          return slide.classList.contains('active');
+        });
+        var previousIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(previousIndex);
+      }
+
+      navButtons.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+          showSlide(index);
+        });
+      });
+
+      setInterval(nextSlide, 3000);
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -73,53 +138,19 @@
       </ul>
     </nav>
     <div class="slideshow">
-      <!-- Insert your slideshow images here using <img> tag -->
-      <img src="https://pic.sogou.com/pic/download.jsp?s_from=vrid_10000103&statref=search_list&v=5&keyword=%E5%B1%B1%E6%B2%B3%E5%A4%A7%E5%AD%A6%E7%85%A7%E7%89%87&initQuery=%E5%B1%B1%E6%B2%B3%E5%A4%A7%E5%AD%A6%E7%85%A7%E7%89%87&category_kind=searchList_bigMode&mode=1&mood=0&tagQSign=&start=0&xml_len=48&channel=&dataSource=searchhub&groupIndex=0&g_index=1&id=e79a8706efd117f6-9e2c5840f1042f9c-0b6cd5cebf697077e62f232312bf5b84&ssf=&group_docid=#!id=e79a8706efd117f6-9e2c5840f1042f9c-0b6cd5cebf697077e62f232312bf5b84&index=1" alt="Slideshow Image 1">
-      <img src="https://pic.sogou.com/pic/download.jsp?s_from=vrid_10000103&statref=search_list&v=5&keyword=%E5%B1%B1%E6%B2%B3%E5%A4%A7%E5%AD%A6%E7%85%A7%E7%89%87&initQuery=%E5%B1%B1%E6%B2%B3%E5%A4%A7%E5%AD%A6%E7%85%A7%E7%89%87&category_kind=searchList_bigMode&mode=1&mood=0&tagQSign=&start=0&xml_len=48&channel=&dataSource=searchhub&groupIndex=1&g_index=1&id=d7036c9a17f5fda2-677210b4c6871c9a-26195ff16d2acdd9105bd6d169bb1369&ssf=&group_docid=#!id=d7036c9a17f5fda2-677210b4c6871c9a-26195ff16d2acdd9105bd6d169bb1369&index=2" alt="Slideshow Image 2">
-      <img src="https://pic.sogou.com/pic/download.jsp?s_from=vrid_10000103&statref=search_list&v=5&keyword=%E5%B1%B1%E6%B2%B3%E5%A4%A7%E5%AD%A6%E7%85%A7%E7%89%87&initQuery=%E5%B1%B1%E6%B2%B3%E5%A4%A7%E5%AD%A6%E7%85%A7%E7%89%87&category_kind=searchList_bigMode&mode=1&mood=0&tagQSign=&start=0&xml_len=48&channel=&dataSource=searchhub&groupIndex=2&g_index=1&id=e154002750821088-861ba6d71a52c500-837b12dacdeed8c5bed18bc32ef9fd46&ssf=&group_docid=#!id=e154002750821088-861ba6d71a52c500-837b12dacdeed8c5bed18bc32ef9fd46&index=3" alt="Slideshow Image 3">
+      <img src="https://i.postimg.cc/ZK8y4tfg/85934af14668407191be5f05c729190e.jpg" class="active">
+      <img src="https://i.postimg.cc/R0y0wXsK/7594f248e80bec72.jpg">
+      <img src="https://i.postimg.cc/jdcdMs3s/e127ce7d96814754b39c5f4145fa36d7.png">
+    </div>
+    <div class="slideshow-nav">
+      <button class="active"></button>
+      <button></button>
+      <button></button>
     </div>
   </header>
 
   <main>
-    <section>
-      <h1>欢迎来到山河大学</h1>
-      <p>山河大学是一所致力于培养优秀人才的高等教育机构。</p>
-    </section>
-
-    <section>
-      <h2>关于我们</h2>
-      <p>山河大学成立于2023年6月28日，致力于提供高质量的教育和研究环境。</p>
-    </section>
-
-    <section>
-      <h2>学术专业</h2>
-      <ul>
-        <li>计算机科学</li>
-        <li>商务管理</li>
-        <li>工程学</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>招生信息</h2>
-      <p>欢迎对我们学校感兴趣的学生申请入学。</p>
-      <p>请填写<a href="#">在线申请表</a>以获取更多信息。</p>
-    </section>
-
-    <section>
-      <h2>校园生活</h2>
-      <p>在山河大学，我们提供丰富多彩的校园生活和社交活动。</p>
-    </section>
-
-    <section>
-      <h2>联系我们</h2>
-      <p>如有任何问题或疑问，请通过以下方式与我们联系：</p>
-      <ul>
-        <li>电话：xxx-xxxxxxx</li>
-        <li>电子邮件：<a href="mailto:info@shanhuauniversity.com">info@shanhuauniversity.com</a></li>
-        <li>地址：xxxxx街道xxxx号，xxxx市，xxxx省</li>
-      </ul>
-    </section>
+    <!-- 页面的其他内容 -->
   </main>
 
   <footer>
